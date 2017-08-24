@@ -1,0 +1,19 @@
+version: '3'
+services:
+  ui:
+    image: "iiccqq12345/rbac-ui"
+    ports:
+     - "80:80"  
+    network_mode: "host"
+  web:
+    image: "iiccqq12345/rbac-server"
+    ports:
+     - "8081:8081"
+    network_mode: "host"
+  db:
+    image: "iiccqq12345/rbac-db"
+    expose:
+     - "3306"
+    environment:
+     - MYSQL_ROOT_PASSWORD=123456
+    network_mode: "host"
